@@ -1,0 +1,29 @@
+html {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+}
+
+.header {
+  color: gray;
+  font-size: 2rem;
+  margin: 1rem 0 0;
+  text-align: center;
+  padding: 0.25rem;
+  border: 3px solid lightgray;
+  border-width: 3px 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0;
+}
+
+a {
+  color: cornflowerblue;
+}
+
+.image {
+  width: 100%;
+  max-width: 500px;
+}

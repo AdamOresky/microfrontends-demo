@@ -1,0 +1,23 @@
+{
+  "name": "microforonetends",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "storage": "mfserve --cors --listen 3030 storage",
+    "01_pages_links": "concurrently --names \"decide,inspire,storage\" \"mfserve --listen 3001 01_pages_links/team-decide\" \"mfserve --listen 3002 01_pages_links/team-inspire\" \"npm:storage\" \"npx wait-on http-get://localhost:3001/product/iphone && opener http://localhost:3001/product/iphone\"",
+    "02_iframe": "concurrently --names \"decide,inspire,storage\" \"mfserve --listen 3001 02_iframe/team-decide\" \"mfserve --listen 3002 02_iframe/team-inspire\" \"npm:storage\" \"npx wait-on http-get://localhost:3001/product/iphone && opener http://localhost:3001/product/iphone\"",
+    "03_ajax": "concurrently --names \"decide,inspire,storage\" \"mfserve --listen 3001 03_ajax/team-decide\" \"mfserve --listen 3002 --cors 03_ajax/team-inspire\" \"npm:storage\" \"npx wait-on http-get://localhost:3001/product/iphone && opener http://localhost:3001/product/iphone\"",
+    "04_web_components": "concurrently --names \"home,product,cart,storage\" \"mfserve --cors --listen 3001 04_web_components/team-home\" \"mfserve --cors --listen 3002 04_web_components/team-product\" \"mfserve --cors --listen 3003 04_web_components/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3001/home && opener http://localhost:3001/home\""
+  },
+  "author": "naltatis",
+  "license": "ISC",
+  "dependencies": {
+    "@microfrontends/serve": "^11.3.0",
+    "concurrently": "^6.0.2",
+    "opener": "^1.5.2"
+  },
+  "devDependencies": {
+    "wait-on": "^9.0.1"
+  }
+}

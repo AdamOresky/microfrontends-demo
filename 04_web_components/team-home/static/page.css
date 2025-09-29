@@ -1,0 +1,74 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+}
+
+a {
+  color: inherit;
+}
+
+.header {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 1rem;
+  border: solid lightgray;
+  border-width: 3px 0;
+  font-size: 2rem;
+  color: gray;
+}
+
+.header-left {
+  font-weight: bold;
+}
+
+.header-right a {
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.footer {
+  color: gray;
+  font-size: 2rem;
+  margin: 1rem 0 0;
+  text-align: center;
+  padding: 0.25rem;
+  border: solid lightgray;
+  border-width: 3px 0;
+  grid-column: 1 / span 2;
+}
+
+h1 {
+  max-height: 70px;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0;
+}
+
+a {
+  color: cornflowerblue;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #1f62d8;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-link:hover {
+  color: inherit;
+}

@@ -1,0 +1,44 @@
+html {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+}
+
+.header {
+  color: gray;
+  font-size: 2rem;
+  margin: 1rem 0 2rem;
+  text-align: center;
+  padding: 0.25rem;
+  border: 3px solid lightgray;
+  border-left: 0;
+  border-right: 0;
+}
+
+h2 {
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+}
+
+a {
+  color: cornflowerblue;
+}
+
+.recommendations {
+  text-align: center;
+}
+
+.recommendations a {
+  display: inline-block;
+  margin: 1rem;
+}
+
+.recommendations img {
+  width: 300px;
+  max-width: 100%;
+}
+
+.recommendations a p {
+  margin: 15px;
+}

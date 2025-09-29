@@ -1,0 +1,37 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+}
+
+/* RECOMMENDATION STYLES */
+
+h2 {
+  font-size: 1.5em !important;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+}
+
+.recommendations {
+  text-align: center;
+}
+
+.recommendations a {
+  display: inline-block;
+  margin: 1rem;
+}
+
+p {
+  padding-top: 15px;
+}
+
+.recommendations img {
+  max-width: 60%;
+  width: 300px;
+}

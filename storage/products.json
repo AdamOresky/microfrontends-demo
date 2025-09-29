@@ -1,0 +1,227 @@
+{
+  "iphone-16-pro": {
+    "name": "Iphone 16 Pro",
+    "brand": "iphone",
+    "description": "iPhone 16 Pro je šikovný telefón bez kompromisov. Apple doňho premietol to najlepšie, čo vie. Preto prináša napríklad vylepšený kamerový systém (2× 48 Mpx + 12 Mpx), schopnosť 5× priblíženia, nahrávanie 4K Dolby Vision videí, predĺženú výdrž alebo vďaka stenčeným rámčekom ešte väčší 6,3\" Super Retina XDR displej so 120 Hz. umožní venovať sa tým najnáročnejším úlohám.",
+    "price": 1299,
+    "stock": 12,
+    "imageUrl": "http://localhost:3030/images/iphone-16-pro.jpg",
+    "year": 2025,
+    "recommendations": [
+      "iphone-14-pro-max",
+      "iphone-se-2024",
+      "iphone-15",
+      "iphone-13-mini"
+    ]
+  },
+  "google-pixel-8": {
+    "name": "Google Pixel 8",
+    "brand": "google",
+    "description": "Elegantný smartphone Google Pixel 8 predstavuje dômyselnú kombináciu technológií prinášajúcich optimálny užívateľský zážitok. Vynikajúci displej je odolný voči priamemu slnečnému žiareniu, samotné telo telefónu voči poškriabaniu a vode. Samozrejmosťou je nekompromisný výkon. Pomocou umelej inteligencie vyčarujete magické okamihy, zachytíte každý detail a prekvapíte okolie brilantnými zábermi, ktoré môžete vyhotovovať doslova od súmraku do úsvitu.",
+    "price": 304,
+    "stock": 8,
+    "imageUrl": "http://localhost:3030/images/google-pixel-8.jpg",
+    "year": 2023,
+    "recommendations": [
+      "google-pixel-8a",
+      "google-pixel-6",
+      "google-pixel-fold",
+      "google-pixel-7-pro"
+    ]
+  },
+  "samsung-galaxy-s25": {
+    "name": "Samsung Galaxy S25",
+    "brand": "samsung",
+    "description": "Galaxy S25 kombinuje špičkový dizajn s inovatívnymi technológiami a stane sa vaším dokonalým každodenným spoločníkom. Jeho tenký a elegantný dizajn s odolným hliníkovým rámom vás zaujme na prvý pohľad, zatiaľ čo pohlcujúci displej prináša skvelý vizuálny zážitok. Vďaka revolučnej technológii ProVisual Engine a výkonnej čipovej súprave optimalizovanej pre herný výkon sa každý okamih stane nezabudnuteľným.",
+    "price": 1199,
+    "stock": 10,
+    "imageUrl": "http://localhost:3030/images/samsung-galaxy-s25.jpg",
+    "year": 2025,
+    "recommendations": [
+      "samsung-galaxy-z-flip6",
+      "samsung-galaxy-a55",
+      "samsung-galaxy-z-fold5",
+      "samsung-galaxy-s23-fe"
+    ]
+  },
+  "iphone-15": {
+    "name": "iPhone 15",
+    "brand": "iphone",
+    "description": "iPhone 15 ponúka dynamický displej, výkonný A16 Bionic čip a výdrž, na ktorú sa môžete spoľahnúť. Perfektný vstup do sveta Apple.",
+    "price": 899,
+    "stock": 15,
+    "imageUrl": "http://localhost:3030/images/iphone-15.jpg",
+    "year": 2023,
+    "recommendations": [
+      "iphone-16-pro",
+      "iphone-se-2024",
+      "iphone-13-mini",
+      "iphone-14-pro-max"
+    ]
+  },
+  "samsung-galaxy-a55": {
+    "name": "Samsung Galaxy A55",
+    "brand": "samsung",
+    "description": "Galaxy A55 je ideálny pre každodenné použitie. Ponúka výborný AMOLED displej, slušný výkon a výdrž za dostupnú cenu.",
+    "price": 379,
+    "stock": 20,
+    "imageUrl": "http://localhost:3030/images/samsung-galaxy-a55.jpg",
+    "year": 2024,
+    "recommendations": [
+      "samsung-galaxy-s25",
+      "samsung-galaxy-z-flip6",
+      "samsung-galaxy-s23-fe",
+      "samsung-galaxy-z-fold5"
+    ]
+  },
+  "google-pixel-8a": {
+    "name": "Google Pixel 8a",
+    "brand": "google",
+    "description": "Cenovo dostupný model Pixelu s výborným fotoaparátom a čistým Androidom. AI funkcie dostupné aj pre bežných používateľov.",
+    "price": 449,
+    "stock": 14,
+    "imageUrl": "http://localhost:3030/images/google-pixel-8a.jpg",
+    "year": 2024,
+    "recommendations": [
+      "google-pixel-8",
+      "google-pixel-6",
+      "google-pixel-7-pro",
+      "iphone-15"
+    ]
+  },
+  "iphone-se-2024": {
+    "name": "iPhone SE (2024)",
+    "brand": "iphone",
+    "description": "Malý, ale výkonný. iPhone SE prináša rýchly čip a známy dizajn za dostupnú cenu. Ideálny ako prvý iPhone alebo druhý telefón.",
+    "price": 499,
+    "stock": 9,
+    "imageUrl": "http://localhost:3030/images/iphone-se-2024.jpg",
+    "year": 2024,
+    "recommendations": [
+      "iphone-13-mini",
+      "iphone-16-pro",
+      "iphone-14-pro-max",
+      "iphone-15"
+    ]
+  },
+  "samsung-galaxy-z-flip6": {
+    "name": "Samsung Galaxy Z Flip6",
+    "brand": "samsung",
+    "description": "Z Flip6 je elegantný skladací telefón s flexibilným displejom. Kompaktnosť a štýl v jednom s výborným výkonom.",
+    "price": 1299,
+    "stock": 6,
+    "imageUrl": "http://localhost:3030/images/samsung-galaxy-z-flip6.jpg",
+    "year": 2024,
+    "recommendations": [
+      "samsung-galaxy-z-fold5",
+      "samsung-galaxy-s25",
+      "samsung-galaxy-s23-fe",
+      "samsung-galaxy-a55"
+    ]
+  },
+  "google-pixel-fold": {
+    "name": "Google Pixel Fold",
+    "brand": "google",
+    "description": "Pixel Fold spája najnovšie AI funkcie s veľkým skladacím displejom. Práca aj zábava na jednom zariadení.",
+    "price": 1799,
+    "stock": 3,
+    "imageUrl": "http://localhost:3030/images/google-pixel-fold.jpg",
+    "year": 2023,
+    "recommendations": [
+      "google-pixel-8a",
+      "google-pixel-8",
+      "google-pixel-6",
+      "google-pixel-7-pro"
+    ]
+  },
+  "iphone-14-pro-max": {
+    "name": "iPhone 14 Pro Max",
+    "brand": "iphone",
+    "description": "Veľký displej, Dynamic Island, 48 Mpx kamera a A16 Bionic čip robia z iPhonu 14 Pro Max špičkový model aj v roku 2025.",
+    "price": 1149,
+    "stock": 5,
+    "imageUrl": "http://localhost:3030/images/iphone-14-pro-max.jpg",
+    "year": 2022,
+    "recommendations": [
+      "iphone-15",
+      "iphone-13-mini",
+      "iphone-16-pro",
+      "iphone-se-2024"
+    ]
+  },
+  "samsung-galaxy-s23-fe": {
+    "name": "Samsung Galaxy S23 FE",
+    "brand": "samsung",
+    "description": "Fanúšikovská edícia S23 ponúka vlajkový výkon za výhodnú cenu. Skvelý fotoaparát, AMOLED displej a dlhá výdrž.",
+    "price": 699,
+    "stock": 18,
+    "imageUrl": "http://localhost:3030/images/samsung-galaxy-s23-fe.jpg",
+    "year": 2023,
+    "recommendations": [
+      "samsung-galaxy-a55",
+      "samsung-galaxy-z-flip6",
+      "samsung-galaxy-s25",
+      "samsung-galaxy-z-fold5"
+    ]
+  },
+  "google-pixel-7-pro": {
+    "name": "Google Pixel 7 Pro",
+    "brand": "google",
+    "description": "Krásny LTPO displej, teleobjektív a pokročilé AI funkcie pre fotografie – Pixel 7 Pro je výborná voľba pre kreatívcov.",
+    "price": 639,
+    "stock": 7,
+    "imageUrl": "http://localhost:3030/images/google-pixel-7-pro.jpg",
+    "year": 2022,
+    "recommendations": [
+      "google-pixel-6",
+      "google-pixel-fold",
+      "google-pixel-8",
+      "google-pixel-8a"
+    ]
+  },
+  "iphone-13-mini": {
+    "name": "iPhone 13 Mini",
+    "brand": "iphone",
+    "description": "Posledný kompaktný iPhone – ideálny do vrecka, bez kompromisov na výkone. Skvelá voľba pre tých, čo nemajú radi veľké telefóny.",
+    "price": 589,
+    "stock": 10,
+    "imageUrl": "http://localhost:3030/images/iphone-13-mini.jpg",
+    "year": 2021,
+    "recommendations": [
+      "iphone-14-pro-max",
+      "iphone-se-2024",
+      "iphone-15",
+      "iphone-16-pro"
+    ]
+  },
+  "google-pixel-6": {
+    "name": "Google Pixel 6",
+    "brand": "google",
+    "description": "Pixel 6 je stále skvelý výber pre tých, čo chcú čistý Android, výborný fotoaparát a Tensor čip za dostupnú cenu. Výkon a softvér ako od Googlu očakávate.",
+    "price": 399,
+    "stock": 13,
+    "imageUrl": "http://localhost:3030/images/google-pixel-6.jpg",
+    "year": 2021,
+    "recommendations": [
+      "google-pixel-fold",
+      "google-pixel-8a",
+      "google-pixel-7-pro",
+      "google-pixel-8"
+    ]
+  },
+  "samsung-galaxy-z-fold5": {
+    "name": "Samsung Galaxy Z Fold5",
+    "brand": "samsung",
+    "description": "Produktivita bez hraníc. Z Fold5 ponúka veľký skladací displej, multitasking ako na tablete a výkon vlajkovej lode v kompaktnom balení.",
+    "price": 1899,
+    "stock": 4,
+    "imageUrl": "http://localhost:3030/images/samsung-galaxy-z-fold5.jpg",
+    "year": 2023,
+    "recommendations": [
+      "samsung-galaxy-z-flip6",
+      "samsung-galaxy-s23-fe",
+      "samsung-galaxy-a55",
+      "samsung-galaxy-s25"
+    ]
+  }
+}

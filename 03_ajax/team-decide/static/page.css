@@ -1,0 +1,46 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+}
+
+a {
+  color: inherit;
+}
+
+/* PRODUCT PAGE STYLES */
+
+.header {
+  color: gray;
+  font-size: 2rem;
+  margin: 1rem 0 0;
+  text-align: center;
+  padding: 0.25rem;
+  border: solid lightgray;
+  border-width: 3px 0;
+  grid-column: 1 / span 2;
+}
+
+h1 {
+  max-height: 70px;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0;
+}
+
+a {
+  color: cornflowerblue;
+}
+
+.image {
+  width: 100%;
+  max-width: 500px;
+}
