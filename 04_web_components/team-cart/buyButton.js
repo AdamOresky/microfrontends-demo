@@ -1,23 +1,60 @@
+function getCartFromCookie() {
+    const entry = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("cart="));
+    if (!entry) return {};
+    try {
+        const value = entry.split("=")[1];
+        return JSON.parse(decodeURIComponent(value));
+    } catch (e) {
+        console.error("Cannot parse cart cookie", e);
+        return {};
+    }
+}
+
+function saveCartToCookie(cart) {
+    const value = encodeURIComponent(JSON.stringify(cart));
+    document.cookie = `cart=${value}; Path=/; SameSite=Lax`;
+}
+
 class CheckoutBuy extends HTMLElement {
     connectedCallback() {
-        console.log("AAA");
+        this._handleClick = () => this.onClick();
         this.innerHTML = `
       <button class="btn btn-success btn-xl">Pridať do košíka</button>
     `;
-        this.querySelector("button").addEventListener("click", () => {
-            this.onClick();
-        });
+        const btn = this.querySelector("button");
+        if (btn) {
+            btn.addEventListener("click", this._handleClick);
+        }
     }
 
     disconnectedCallback() {
-        this.querySelector("button").removeEventListener("click");
+        const btn = this.querySelector("button");
+        if (btn && this._handleClick) {
+            btn.removeEventListener("click", this._handleClick);
+        }
     }
 
     onClick() {
-        const productId = this.getAttribute("product-id");
-        const cart = JSON.parse(localStorage.getItem("cart")) || {};
+        let productId = this.getAttribute("product-id");
+
+        if (!productId) {
+            const params = new URLSearchParams(window.location.search);
+            productId = params.get("productId");
+        }
+
+        if (!productId) {
+            console.warn("checkout-buy: missing product-id (ani v URL)");
+            return;
+        }
+
+        let cart = getCartFromCookie();
         cart[productId] = (cart[productId] || 0) + 1;
-        localStorage.setItem("cart", JSON.stringify(cart));
+        saveCartToCookie(cart);
+
+        window.dispatchEvent(new CustomEvent("cart-changed", { detail: { cart } }));
+
         alert("Produkt pridaný do košíka 🛒");
     }
 }
