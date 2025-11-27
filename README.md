@@ -33,8 +33,8 @@ npm run 04_web_components
 
 ## ✅ TODO
 
-- [ ] Make **01–03** fetch data from JSON instead of static content.
-- [ ] Finalize **04 (web components + cart)** demo.
+- [x] Make **01–03** fetch data from JSON instead of static content.
+- [x] Finalize **04 (web components + cart)** demo.
 - [ ] Clean up CSS files and give teams consistent, descriptive names.
 - [ ] Add toggleable outlines to visually highlight the boundaries of each microfrontend.
 
