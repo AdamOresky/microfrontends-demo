@@ -1,24 +1,35 @@
 <html lang="Sk">
-  <head>
+
+<head>
   <meta charset="utf-8" />
-  <link rel="shortcut icon" href="#"/>
+  <link rel="shortcut icon" href="#" />
   <link href="/static/page.css" rel="stylesheet" />
-  <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="http://localhost:3001/static/page.css" rel="stylesheet" />
   <link href="http://localhost:3003/static/page.css" rel="stylesheet" />
   <title>Košík</title>
-  </head>
-  <body class="container">
-    <div>
-      <home-header/>
-    </div>
-    <div>
-      <cart-view/>
-    </div>
-    <script src="http://localhost:3001/header.js" async></script>
-    <script src="http://localhost:3003/cart.js" async></script>
-  </body>
+</head>
+
+<body class="container">
+  <div>
+    <home-header />
+  </div>
+  <div>
+    <cart-view />
+  </div>
+  <div>
+    <home-footer />
+  </div>
+  <script src="http://localhost:3001/header.js" async></script>
+  <script src="http://localhost:3003/cart.js" async></script>
+  <script src="http://localhost:3001/footer.js" async></script>
+</body>
+<script src="http://localhost:3030/teams.js"></script>
+<script src="http://localhost:3030/team-frame.js"></script>
+<script>
+  window.TeamLabels.init([
+    {name: "Tím Domov", color: "DodgerBlue"},
+    {name: "Tím Košík", color: "Orchid"}
+  ]);
+</script>
 </html>

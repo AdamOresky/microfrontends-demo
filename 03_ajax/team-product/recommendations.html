@@ -1,0 +1,61 @@
+<html lang="sk">
+
+<head>
+    <title>Odporúčané</title>
+    <link href="/static/page.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+
+<body class="container">
+    <h2>Odporúčané</h2>
+    <div id="recommendations" class="row mt-4"></div>
+
+    <script>
+        (function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get("id");
+
+            fetch("http://localhost:3030/products.json")
+                .then((response) => response.json())
+                .then((data) => {
+                    const product = data[productId];
+                    if (!product) {
+                        document.getElementById("recommendations").innerHTML =
+                            "<p>Produkt nebol nájdený.</p>";
+                        return;
+                    }
+
+                    const container = document.getElementById("recommendations");
+                    container.innerHTML = "";
+
+                    product.recommendations.forEach((recId) => {
+                        const recProduct = data[recId];
+                        if (!recProduct) return;
+
+                        const col = document.createElement("div");
+                        col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
+                        col.innerHTML = `
+            <a href="http://localhost:3002/product?id=${recId}" target="_top" style="text-decoration:none;color:inherit;">
+              <div class="card h-100">
+                <img src="${recProduct.imageUrl}" class="card-img-top p-3" alt="${recProduct.name}" style="height:200px;object-fit:contain;">
+                <div class="card-body text-center">
+                  <h6 class="card-title fw-bold">${recProduct.name}</h6>
+                  <p class="card-text mb-0 fw-bold">${recProduct.price} €</p>
+                </div>
+              </div>
+            </a>
+            `;
+                        container.appendChild(col);
+                    });
+                })
+                .catch((err) => {
+                    console.error("Nepodarilo sa načítať odporúčané produkty:", err);
+                    document.getElementById("recommendations").innerHTML =
+                        "<p>Nepodarilo sa načítať odporúčané produkty.</p>";
+                });
+        })();
+    </script>
+</body>
+
+</html>

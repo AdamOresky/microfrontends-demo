@@ -19,11 +19,14 @@ function saveCartToCookie(cart) {
 
 class Cart extends HTMLElement {
     async connectedCallback() {
+        if (window.setupElementTeamFrame) window.setupElementTeamFrame(this, 'Orchid');
         this.innerHTML = `
       <h5 class="mb-3 mt-3">Košík:</h5>
       <div id="product-list" class="row text-center"></div>
-      <div id="cart-total" class="mt-4 fw-bold"></div>
-      <div id="finish-button" class="mt-4 fw-bold"></div>
+       <div class="row text-center">
+            <div id="cart-total" class="mt-2 fw-bold"></div>
+            <div id="finish-button" class="mt-2 mb-2"></div>
+        </div>
     `;
 
         this._handleCartChanged = () => this.renderCart();

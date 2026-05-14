@@ -1,5 +1,7 @@
 class Product extends HTMLElement {
-    connectedCallback() {
+    async connectedCallback() {
+        if (window.setupElementTeamFrame) window.setupElementTeamFrame(this, 'MediumSeaGreen');
+        this.innerHTML = `<p>Načítavam produkt...</p>`;
         const productId = this.getAttribute('product-id');
         if (!productId) return;
 

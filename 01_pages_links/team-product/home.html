@@ -1,0 +1,226 @@
+<html lang="sk">
+
+<head>
+  <title>MicroShop</title>
+  <link rel="shortcut icon" href="">
+  <link href="static/page.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+</head>
+
+<body class="container">
+  <h1 class="header">
+    <span class="header-left">
+      <a class="logo-link" href="http://localhost:3002/home">MicroShop</a>
+    </span>
+    <span class="header-right">
+      <a href="http://localhost:3002/home">Produkty</a>
+      <a href="http://localhost:3003/cart">Košík</a>
+    </span>
+  </h1>
+
+  <div class="card mb-4 mt-3">
+    <div class="card-body">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-auto mb-3 mb-lg-0 fw-bold">
+          Zoradenie:
+        </div>
+        <div class="col-12 col-lg-auto mb-3 mb-lg-0">
+          <div class="btn-group" role="group">
+            <input type="radio" class="btn-check sort-radio" name="sort" id="sort-price-asc" value="price-asc"
+              autocomplete="off">
+            <label class="btn btn-outline-primary" for="sort-price-asc">Najlacnejšie</label>
+
+            <input type="radio" class="btn-check sort-radio" name="sort" id="sort-price-desc" value="price-desc"
+              autocomplete="off">
+            <label class="btn btn-outline-primary" for="sort-price-desc">Najdrahšie</label>
+
+            <input type="radio" class="btn-check sort-radio" name="sort" id="sort-year-asc" value="year-asc"
+              autocomplete="off">
+            <label class="btn btn-outline-primary" for="sort-year-asc">Najstaršie</label>
+
+            <input type="radio" class="btn-check sort-radio" name="sort" id="sort-year-desc" value="year-desc"
+              autocomplete="off">
+            <label class="btn btn-outline-primary" for="sort-year-desc">Najnovšie</label>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-auto mb-2 mb-lg-0 ms-lg-auto fw-bold">
+          Značka:
+        </div>
+        <div class="col-12 col-lg-auto">
+          <div id="brand-container" class="d-flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="products" class="row"></div>
+
+  <script>
+    (async function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const sortVal = urlParams.get('sort');
+      const brandsVal = urlParams.get('brands');
+      const activeBrands = new Set(brandsVal ? brandsVal.split(',') : []);
+
+      if (sortVal) {
+        const radio = document.querySelector(`input[name="sort"][value="${sortVal}"]`);
+        if (radio) radio.checked = true;
+      }
+
+      function handleFilterChange() {
+        let selectedSort = null;
+        const checkedSortRadio = document.querySelector('input[name="sort"]:checked');
+        if (checkedSortRadio) {
+          selectedSort = checkedSortRadio.value;
+        }
+
+        const selectedBrands = [];
+        const checkedBrandBoxes = document.querySelectorAll('.brand-checkbox:checked');
+        for (let i = 0; i < checkedBrandBoxes.length; i++) {
+          selectedBrands.push(checkedBrandBoxes[i].value);
+        }
+
+        const newParams = new URLSearchParams();
+        if (selectedSort) {
+          newParams.set('sort', selectedSort);
+        }
+        if (selectedBrands.length > 0) {
+          newParams.set('brands', selectedBrands.join(','));
+        }
+
+        window.location.href = window.location.pathname + '?' + newParams.toString();
+      }
+
+      const sortRadios = document.querySelectorAll('input[name="sort"]');
+      for (let i = 0; i < sortRadios.length; i++) {
+        sortRadios[i].addEventListener('change', handleFilterChange);
+      }
+
+      try {
+        const res = await fetch('http://localhost:3030/products.json');
+        if (!res.ok) {
+          throw new Error(`HTTP`);
+        }
+        const data = await res.json();
+
+        const productsList = Object.entries(data);
+
+        function normalizeBrand(value) {
+          if (value === null || value === undefined) {
+            return '';
+          }
+          return String(value).trim().toLowerCase();
+        }
+
+        const brandContainer = document.getElementById('brand-container');
+        
+        const uniqueBrands = new Set();
+        for (let i = 0; i < productsList.length; i++) {
+          const productEntry = productsList[i];
+          const productData = productEntry[1];
+          const brandName = normalizeBrand(productData.brand);
+          if (brandName.length > 0) {
+            uniqueBrands.add(brandName);
+          }
+        }
+
+        const allBrands = Array.from(uniqueBrands);
+        allBrands.sort(function (brandA, brandB) {
+          return brandA.localeCompare(brandB);
+        });
+
+        brandContainer.innerHTML = allBrands.map(function (brand) {
+          const id = `brand-${brand}`;
+          const isChecked = activeBrands.has(brand) ? 'checked' : '';
+          return `
+                <div>
+                  <input type="checkbox" class="btn-check brand-checkbox" id="${id}" value="${brand}" ${isChecked} autocomplete="off">
+                  <label class="btn btn-outline-secondary" for="${id}">${brand}</label>
+                </div>
+            `;
+        }).join('');
+
+        const checkboxes = brandContainer.querySelectorAll('.brand-checkbox');
+        for (let i = 0; i < checkboxes.length; i++) {
+          checkboxes[i].addEventListener('change', handleFilterChange);
+        }
+
+        let items = productsList;
+        
+        if (activeBrands.size > 0) {
+          items = items.filter(function (productEntry) {
+            const productData = productEntry[1];
+            const normalizedBrandName = normalizeBrand(productData.brand);
+            const isBrandSelected = activeBrands.has(normalizedBrandName);
+            return isBrandSelected;
+          });
+        }
+
+        if (sortVal) {
+          const sortParts = sortVal.split('-');
+          const sortField = sortParts[0];
+          const sortDirection = sortParts[1];
+
+          items = [...items].sort(function (firstEntry, secondEntry) {
+            const firstProduct = firstEntry[1];
+            const secondProduct = secondEntry[1];
+
+            const firstValue = Number(firstProduct[sortField]);
+            const secondValue = Number(secondProduct[sortField]);
+
+            if (sortDirection === 'asc') {
+              return firstValue - secondValue;
+            } else {
+              return secondValue - firstValue;
+            }
+          });
+        }
+
+        const container = document.getElementById('products');
+        container.innerHTML = "";
+        
+        items.forEach(function (productEntry) {
+          const productId = productEntry[0];
+          const productData = productEntry[1];
+
+          const col = document.createElement("div");
+          col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
+          col.innerHTML = `
+                    <a href="http://localhost:3002/product?id=${productId}" style="text-decoration:none;color:inherit;">
+                      <div class="card">
+                        <img src="${productData.imageUrl}" class="card-img-top p-3" alt="${productData.name}" style="height:200px;object-fit:contain;">
+                        <div class="card-body text-center">
+                          <h6 class="card-title fw-bold">${productData.name}</h6>
+                          <p class="card-text mb-0 fw-bold">${productData.price} €</p>
+                        </div>
+                      </div>
+                    </a>
+                  `;
+          container.appendChild(col);
+        });
+
+      } catch (err) {
+        console.error("Nepodarilo sa načítať produkty:", err);
+        document.getElementById('products').innerHTML = `<p class="text-danger">Nepodarilo sa načítať produkty.</p>`;
+      }
+    })();
+  </script>
+
+  <div class="footer d-flex flex-column align-items-center gap-2 pb-3">
+    <label
+      style="cursor: pointer; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
+      <input type="checkbox" id="show-teams-toggle" style="cursor: pointer;"> Zobraziť tímy
+    </label>
+    <span>MicroShop 2026 | Bakalárska práca</span>
+  </div>
+  <script src="http://localhost:3030/teams.js"></script>
+  <script src="http://localhost:3030/team-frame.js"></script>
+  <script>
+    window.TeamLabels.init([{ name: "Tím Produkt", color: "MediumSeaGreen" }]);
+    window.initTeamFrame('MediumSeaGreen');
+  </script>
+</body>
+
+</html>

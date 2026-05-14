@@ -1,21 +1,33 @@
-# Microfrontends Demo
+# Návrh a implementácia jednoduchého mikrofrontendu
 
-**Work in Progress**
+Bakalárska práca, Adam Oreský, FMFI UK, 2026
 
-This repository demonstrates different approaches to building **microfrontends**.  
-The demos showcase integration via **HTML links, Iframes, AJAX, and Web Components**.
+Repozitár obsahuje implementáciu jednoduchého e-shopu na predaj mobilných telefónov pomocou štyroch rôznych integračných techník mikrofrontendovej architektúry: **HTML odkazy**, **Iframe**, **Ajax** a **Web Components**.
 
 ---
 
-## 🚀 Getting Started
+## Požiadavky
 
-Clone the repository and install dependencies:
+- **Node.js** verzia 18+
+- **npm** (súčasť inštalácie Node.js)
+- Moderný webový prehliadač (odporúčaný Google Chrome alebo Mozilla Firefox)
+
+---
+
+## Inštalácia
 
 ```bash
+git clone 
+cd 
 npm install
 ```
 
-Then run one of the available demos with `npm run`:
+---
+
+## Spustenie
+
+Každý príkaz spustí všetky potrebné servery (vrátane zdieľaného úložiska na porte 3030) a automaticky otvorí prehliadač.
+
 ```bash
 npm run 01_pages_links
 ```
@@ -29,19 +41,24 @@ npm run 03_ajax
 npm run 04_web_components
 ```
 
----
 
-## ✅ TODO
+Ukončenie všetkých serverov: `Ctrl+C` v termináli.
 
-- [x] Make **01–03** fetch data from JSON instead of static content.
-- [x] Finalize **04 (web components + cart)** demo.
-- [ ] Clean up CSS files and give teams consistent, descriptive names.
-- [ ] Add toggleable outlines to visually highlight the boundaries of each microfrontend.
+>⚠️ **Upozornenie:** Príkazy spúšťajte vždy len po jednom. Súbežné spustenie vedie ku konfliktu na protoch a k nesprávnemu správaniu programu.
 
 ---
 
-## 📌 Notes
+## Rozdelenie portov
 
-- Each demo runs its own microfrontend servers (`team-decide`, `team-inspire`, `storage`).
-- Static assets (images, JSON, etc.) are served on a separate storage port.
-- Designed as part of a **bachelor thesis project on microfrontends**.  
+| Služba | Port |
+|---|---|
+| Tím Domov | `localhost:3001` |
+| Tím Produkt | `localhost:3002` |
+| Tím Košík | `localhost:3003` |
+| Zdieľané úložisko | `localhost:3030` |
+
+---
+
+## Zvýraznenie mikrofrontendov
+
+V pätičke stránky sa nachádza tlačidlo, ktoré farebne zvýrazní hranice jednotlivých mikrofrontendov podľa tímu, ktorý ich spravuje.

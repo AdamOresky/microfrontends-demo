@@ -1,5 +1,6 @@
 class Header extends HTMLElement {
     connectedCallback() {
+        if (window.setupElementTeamFrame) window.setupElementTeamFrame(this, 'DodgerBlue');
         this.innerHTML = `
             <h1 class="header">
                 <span class="header-left">

@@ -1,205 +1,194 @@
 class AllProducts extends HTMLElement {
-    constructor() {
-        super();
-        this.products = [];
-        this.activeBrands = new Set();
-        this.sortField = null;
-        this.sortDir = null;
-    }
+  constructor() {
+    super();
+    this.products = [];
+    this.activeBrands = new Set();
+    this.sortField = null;
+    this.sortDir = null;
+  }
 
-    async connectedCallback() {
-        this.innerHTML = `
-      <style>
-        .sort-checkbox {
-          appearance: none;
-          -webkit-appearance: none;
-          width: 1.2em;
-          height: 1.2em;
-          border: 2px solid #0d6efd;
-          border-radius: 50%;
-          margin-right: 0.5em;
-          position: relative;
-          cursor: pointer;
-        }
-        .sort-checkbox:checked::before {
-          content: "";
-          display: block;
-          width: 0.6em;
-          height: 0.6em;
-          background-color: #0d6efd;
-          border-radius: 50%;
-          position: absolute;
-          top: 0.2em;
-          left: 0.2em;
-        }
-        .sort-label, .brand-label {
-          margin-right: 1rem;
-          font-size: 0.9rem;
-          cursor: pointer;
-          user-select: none;
-          display: inline-flex;
-          align-items: center;
-        }
-        .brand-checkbox {
-          appearance: none;
-          -webkit-appearance: none;
-          width: 1.1em;
-          height: 1.1em;
-          border: 2px solid #198754;
-          border-radius: 0.35rem;
-          margin-right: 0.5em;
-          position: relative;
-          cursor: pointer;
-        }
-        .brand-checkbox:checked::before {
-          content: "";
-          display: block;
-          width: 0.55em;
-          height: 0.55em;
-          background-color: #198754;
-          position: absolute;
-          top: 0.175em;
-          left: 0.175em;
-        }
-        .filters-wrap {
-          gap: 1rem;
-          flex-wrap: wrap;
-        }
-        .filters-title {
-          margin: 0 0.5rem 0 0;
-          font-weight: 600;
-        }
-      </style>
+  async connectedCallback() {
+    if (window.setupElementTeamFrame) window.setupElementTeamFrame(this, 'MediumSeaGreen');
+    this.innerHTML = `
+      <div class="container flex-grow-1">
+        <div class="card mb-4 mt-3">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-12 col-lg-auto mb-3 mb-lg-0 fw-bold">
+                Zoradenie:
+              </div>
+              <div class="col-12 col-lg-auto mb-3 mb-lg-0">
+                <div class="btn-group" role="group">
+                  <input type="radio" class="btn-check sort-radio" name="sort" id="sort-price-asc" value="price-asc" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="sort-price-asc">Najlacnejšie</label>
 
-      <div class="d-flex justify-content-between align-items-start mb-3 mt-3 filters-wrap">
-        <div class="d-flex align-items-center">
-          <span class="filters-title">Zoradenie:</span>
-          <label class="sort-label">
-            <input type="radio" name="sort" value="price-asc" class="sort-checkbox">
-            Najlacnejšie
-          </label>
-          <label class="sort-label">
-            <input type="radio" name="sort" value="price-desc" class="sort-checkbox">
-            Najdrahšie
-          </label>
-          <label class="sort-label">
-            <input type="radio" name="sort" value="year-asc" class="sort-checkbox">
-            Najstaršie
-          </label>
-          <label class="sort-label">
-            <input type="radio" name="sort" value="year-desc" class="sort-checkbox">
-            Najnovšie
-          </label>
+                  <input type="radio" class="btn-check sort-radio" name="sort" id="sort-price-desc" value="price-desc" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="sort-price-desc">Najdrahšie</label>
+
+                  <input type="radio" class="btn-check sort-radio" name="sort" id="sort-year-asc" value="year-asc" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="sort-year-asc">Najstaršie</label>
+
+                  <input type="radio" class="btn-check sort-radio" name="sort" id="sort-year-desc" value="year-desc" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="sort-year-desc">Najnovšie</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-auto mb-2 mb-lg-0 ms-lg-auto fw-bold">
+                Značka:
+              </div>
+              <div class="col-12 col-lg-auto">
+                <div id="brand-container" class="d-flex flex-wrap gap-2"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="d-flex align-items-center" id="brand-container">
-          <span class="filters-title">Značka:</span>
-        </div>
+        <div id="product-list" class="row"></div>
       </div>
-
-      <div id="product-list" class="row"></div>
     `;
 
-        this.listEl = this.querySelector('#product-list');
-        this.sortRadios = this.querySelectorAll('input[name="sort"]');
-        this.sortRadios.forEach(r => r.addEventListener('change', e => this.handleSortChange(e)));
+    this.listEl = this.querySelector('#product-list');
+    this.sortRadios = this.querySelectorAll('input[name="sort"]');
+    const self = this;
+    for (let i = 0; i < this.sortRadios.length; i++) {
+      this.sortRadios[i].addEventListener('change', function(event) {
+        self.handleSortChange(event);
+      });
+    }
 
-        try {
-            const res = await fetch('http://localhost:3030/products.json');
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            const data = await res.json();
-            this.products = Object.entries(data);
-            this.buildBrandFilter();
-            this.render();
-        } catch (err) {
-            console.error('Failed to load products.json:', err);
-            this.listEl.innerHTML = `<p class="text-danger">Nepodarilo sa načítať produkty.</p>`;
+    try {
+      const res = await fetch('http://localhost:3030/products.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      this.products = Object.entries(data);
+      this.buildBrandFilter();
+      this.render();
+    } catch (err) {
+      console.error('Failed to load products.json:', err);
+      this.listEl.innerHTML = `<p class="text-danger">Nepodarilo sa načítať produkty.</p>`;
+    }
+  }
+
+  normalizeBrand(value) {
+    if (value === null || value === undefined) {
+      return '';
+    }
+    return String(value).trim().toLowerCase();
+  }
+
+  buildBrandFilter() {
+    const brandContainer = this.querySelector('#brand-container');
+    
+    const uniqueBrands = new Set();
+    for (let i = 0; i < this.products.length; i++) {
+      const productEntry = this.products[i];
+      const productData = productEntry[1];
+      const brandName = this.normalizeBrand(productData.brand);
+      if (brandName.length > 0) {
+        uniqueBrands.add(brandName);
+      }
+    }
+
+    const allBrands = Array.from(uniqueBrands);
+    allBrands.sort(function (brandA, brandB) {
+      return brandA.localeCompare(brandB);
+    });
+
+    brandContainer.innerHTML = allBrands.map(function (brand) {
+      const id = `brand-${brand}`;
+      return `
+        <div>
+          <input type="checkbox" class="btn-check brand-checkbox" id="${id}" value="${brand}" autocomplete="off">
+          <label class="btn btn-outline-secondary" for="${id}">${brand}</label>
+        </div>
+      `;
+    }).join('');
+
+    const checkboxes = brandContainer.querySelectorAll('.brand-checkbox');
+    const self = this;
+    for (let i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].addEventListener('change', function () {
+        self.handleBrandChange(checkboxes[i]);
+      });
+    }
+  }
+
+  handleBrandChange(input) {
+    const brand = input.value;
+    if (input.checked) {
+      this.activeBrands.add(brand);
+    } else {
+      this.activeBrands.delete(brand);
+    }
+    this.render();
+  }
+
+  handleSortChange(event) {
+    const sortParts = event.target.value.split('-');
+    this.sortField = sortParts[0];
+    this.sortDir = sortParts[1];
+    this.render();
+  }
+
+  getFilteredSorted() {
+    let items = this.products;
+    
+    if (this.activeBrands.size > 0) {
+      const self = this;
+      items = items.filter(function (productEntry) {
+        const productData = productEntry[1];
+        const normalizedBrandName = self.normalizeBrand(productData.brand);
+        const isBrandSelected = self.activeBrands.has(normalizedBrandName);
+        return isBrandSelected;
+      });
+    }
+
+    if (this.sortField && this.sortDir) {
+      const self = this;
+      items = [...items].sort(function (firstEntry, secondEntry) {
+        const firstProduct = firstEntry[1];
+        const secondProduct = secondEntry[1];
+
+        const firstValue = Number(firstProduct[self.sortField]);
+        const secondValue = Number(secondProduct[self.sortField]);
+
+        if (self.sortDir === 'asc') {
+          return firstValue - secondValue;
+        } else {
+          return secondValue - firstValue;
         }
+      });
     }
+    return items;
+  }
 
-    normalizeBrand(v) {
-        return String(v ?? '').trim().toLowerCase();
-    }
+  render() {
+    this.renderProducts(this.getFilteredSorted());
+  }
 
-    buildBrandFilter() {
-        const brandContainer = this.querySelector('#brand-container');
-        const brands = [...new Set(
-            this.products
-                .map(([, p]) => this.normalizeBrand(p.brand))
-                .filter(b => b.length)
-        )].sort((a, b) => a.localeCompare(b));
+  renderProducts(items) {
+    this.listEl.innerHTML = '';
+    for (let i = 0; i < items.length; i++) {
+      const productEntry = items[i];
+      const productId = productEntry[0];
+      const productData = productEntry[1];
 
-        brands.forEach(brand => {
-            const id = `brand-${brand}`;
-            const label = document.createElement('label');
-            label.className = 'brand-label';
-            label.htmlFor = id;
-            label.innerHTML = `
-              <input type="checkbox" id="${id}" value="${brand}" class="brand-checkbox">
-              ${brand}
-            `;
-            const input = label.querySelector('input');
-            input.addEventListener('change', () => this.handleBrandChange(input));
-            brandContainer.appendChild(label);
-        });
-    }
-
-    handleBrandChange(input) {
-        const brand = input.value;
-        if (input.checked) this.activeBrands.add(brand);
-        else this.activeBrands.delete(brand);
-        this.render();
-    }
-
-    handleSortChange(event) {
-        const [field, dir] = event.target.value.split('-');
-        this.sortField = field;
-        this.sortDir = dir;
-        this.render();
-    }
-
-    getFilteredSorted() {
-        let items = this.products;
-        if (this.activeBrands.size) {
-            items = items.filter(([, p]) => this.activeBrands.has(this.normalizeBrand(p.brand)));
-        }
-        if (this.sortField && this.sortDir) {
-            items = [...items].sort(([, a], [, b]) => {
-                const va = Number(a[this.sortField]);
-                const vb = Number(b[this.sortField]);
-                return this.sortDir === 'asc' ? va - vb : vb - va;
-            });
-        }
-        return items;
-    }
-
-    render() {
-        this.renderProducts(this.getFilteredSorted());
-    }
-
-    renderProducts(items) {
-        this.listEl.innerHTML = '';
-        items.forEach(([id, p]) => {
-            const col = document.createElement('div');
-            col.className = 'col-12 col-sm-6 col-md-4 col-lg-3 mb-4';
-            col.innerHTML = `
-        <a href="http://localhost:3002/product?productId=${id}"
-           style="text-decoration:none;color:inherit;">
-          <div class="card h-100">
-            <img src="${p.imageUrl}"
-                 class="card-img-top mt-3"
-                 alt="${p.name}"
-                 style="max-height:300px;object-fit:cover;">
-            <div class="card-body">
-              <h6 class="card-title">${p.name}</h6>
-              <p class="card-text mb-1">${p.price} €</p>
+      const col = document.createElement('div');
+      col.className = 'col-12 col-sm-6 col-md-4 col-lg-3 mb-4';
+      col.innerHTML = `
+        <a href="http://localhost:3002/product?productId=${productId}" style="text-decoration:none;color:inherit;">
+          <div class="card">
+            <img src="${productData.imageUrl}" class="card-img-top p-3" alt="${productData.name}" style="height:200px;object-fit:contain;">
+            <div class="card-body text-center">
+              <h6 class="card-title fw-bold">${productData.name}</h6>
+              <p class="card-text mb-0 fw-bold">${productData.price} €</p>
             </div>
           </div>
         </a>
       `;
-            this.listEl.appendChild(col);
-        });
+      this.listEl.appendChild(col);
     }
+  }
 }
 
 window.customElements.define('all-products', AllProducts);

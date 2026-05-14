@@ -7,12 +7,7 @@
     "stock": 12,
     "imageUrl": "http://localhost:3030/images/iphone-16-pro.jpg",
     "year": 2025,
-    "recommendations": [
-      "iphone-14-pro-max",
-      "iphone-se-2024",
-      "iphone-15",
-      "iphone-13-mini"
-    ]
+    "recommendations": ["iphone-15-pro-max", "iphone-16e", "samsung-galaxy-s25-ultra", "google-pixel-9-pro"]
   },
   "google-pixel-8": {
     "name": "Google Pixel 8",
@@ -22,12 +17,7 @@
     "stock": 8,
     "imageUrl": "http://localhost:3030/images/google-pixel-8.jpg",
     "year": 2023,
-    "recommendations": [
-      "google-pixel-8a",
-      "google-pixel-6",
-      "google-pixel-fold",
-      "google-pixel-7-pro"
-    ]
+    "recommendations": ["google-pixel-9", "google-pixel-8a", "samsung-galaxy-a55", "iphone-15"]
   },
   "samsung-galaxy-s25": {
     "name": "Samsung Galaxy S25",
@@ -37,12 +27,7 @@
     "stock": 10,
     "imageUrl": "http://localhost:3030/images/samsung-galaxy-s25.jpg",
     "year": 2025,
-    "recommendations": [
-      "samsung-galaxy-z-flip6",
-      "samsung-galaxy-a55",
-      "samsung-galaxy-z-fold5",
-      "samsung-galaxy-s23-fe"
-    ]
+    "recommendations": ["samsung-galaxy-s25-ultra", "samsung-galaxy-s24", "iphone-16-pro", "google-pixel-9"]
   },
   "iphone-15": {
     "name": "iPhone 15",
@@ -52,12 +37,7 @@
     "stock": 15,
     "imageUrl": "http://localhost:3030/images/iphone-15.jpg",
     "year": 2023,
-    "recommendations": [
-      "iphone-16-pro",
-      "iphone-se-2024",
-      "iphone-13-mini",
-      "iphone-14-pro-max"
-    ]
+    "recommendations": ["iphone-14", "iphone-16e", "samsung-galaxy-s24", "google-pixel-9"]
   },
   "samsung-galaxy-a55": {
     "name": "Samsung Galaxy A55",
@@ -67,12 +47,7 @@
     "stock": 20,
     "imageUrl": "http://localhost:3030/images/samsung-galaxy-a55.jpg",
     "year": 2024,
-    "recommendations": [
-      "samsung-galaxy-s25",
-      "samsung-galaxy-z-flip6",
-      "samsung-galaxy-s23-fe",
-      "samsung-galaxy-z-fold5"
-    ]
+    "recommendations": ["samsung-galaxy-a16", "samsung-galaxy-s23-fe", "google-pixel-8a", "iphone-se-2024"]
   },
   "google-pixel-8a": {
     "name": "Google Pixel 8a",
@@ -82,12 +57,7 @@
     "stock": 14,
     "imageUrl": "http://localhost:3030/images/google-pixel-8a.jpg",
     "year": 2024,
-    "recommendations": [
-      "google-pixel-8",
-      "google-pixel-6",
-      "google-pixel-7-pro",
-      "iphone-15"
-    ]
+    "recommendations": ["google-pixel-8", "google-pixel-7a", "samsung-galaxy-a55", "iphone-se-2024"]
   },
   "iphone-se-2024": {
     "name": "iPhone SE (2024)",
@@ -97,12 +67,7 @@
     "stock": 9,
     "imageUrl": "http://localhost:3030/images/iphone-se-2024.jpg",
     "year": 2024,
-    "recommendations": [
-      "iphone-13-mini",
-      "iphone-16-pro",
-      "iphone-14-pro-max",
-      "iphone-15"
-    ]
+    "recommendations": ["iphone-16e", "iphone-13-mini", "google-pixel-8a", "samsung-galaxy-a55"]
   },
   "samsung-galaxy-z-flip6": {
     "name": "Samsung Galaxy Z Flip6",
@@ -112,12 +77,7 @@
     "stock": 6,
     "imageUrl": "http://localhost:3030/images/samsung-galaxy-z-flip6.jpg",
     "year": 2024,
-    "recommendations": [
-      "samsung-galaxy-z-fold5",
-      "samsung-galaxy-s25",
-      "samsung-galaxy-s23-fe",
-      "samsung-galaxy-a55"
-    ]
+    "recommendations": ["samsung-galaxy-z-fold5", "samsung-galaxy-s25", "google-pixel-fold", "iphone-16-pro"]
   },
   "google-pixel-fold": {
     "name": "Google Pixel Fold",
@@ -127,12 +87,7 @@
     "stock": 3,
     "imageUrl": "http://localhost:3030/images/google-pixel-fold.jpg",
     "year": 2023,
-    "recommendations": [
-      "google-pixel-8a",
-      "google-pixel-8",
-      "google-pixel-6",
-      "google-pixel-7-pro"
-    ]
+    "recommendations": ["samsung-galaxy-z-fold5", "samsung-galaxy-z-flip6", "google-pixel-9-pro", "iphone-15-pro-max"]
   },
   "iphone-14-pro-max": {
     "name": "iPhone 14 Pro Max",
@@ -142,12 +97,7 @@
     "stock": 5,
     "imageUrl": "http://localhost:3030/images/iphone-14-pro-max.jpg",
     "year": 2022,
-    "recommendations": [
-      "iphone-15",
-      "iphone-13-mini",
-      "iphone-16-pro",
-      "iphone-se-2024"
-    ]
+    "recommendations": ["iphone-15-pro-max", "iphone-16-pro", "samsung-galaxy-s25", "google-pixel-9-pro"]
   },
   "samsung-galaxy-s23-fe": {
     "name": "Samsung Galaxy S23 FE",
@@ -157,12 +107,7 @@
     "stock": 18,
     "imageUrl": "http://localhost:3030/images/samsung-galaxy-s23-fe.jpg",
     "year": 2023,
-    "recommendations": [
-      "samsung-galaxy-a55",
-      "samsung-galaxy-z-flip6",
-      "samsung-galaxy-s25",
-      "samsung-galaxy-z-fold5"
-    ]
+    "recommendations": ["samsung-galaxy-s24", "samsung-galaxy-a55", "google-pixel-8", "iphone-16e"]
   },
   "google-pixel-7-pro": {
     "name": "Google Pixel 7 Pro",
@@ -172,12 +117,7 @@
     "stock": 7,
     "imageUrl": "http://localhost:3030/images/google-pixel-7-pro.jpg",
     "year": 2022,
-    "recommendations": [
-      "google-pixel-6",
-      "google-pixel-fold",
-      "google-pixel-8",
-      "google-pixel-8a"
-    ]
+    "recommendations": ["google-pixel-9-pro", "google-pixel-8", "iphone-14-pro-max", "samsung-galaxy-s23-fe"]
   },
   "iphone-13-mini": {
     "name": "iPhone 13 Mini",
@@ -187,12 +127,7 @@
     "stock": 10,
     "imageUrl": "http://localhost:3030/images/iphone-13-mini.jpg",
     "year": 2021,
-    "recommendations": [
-      "iphone-14-pro-max",
-      "iphone-se-2024",
-      "iphone-15",
-      "iphone-16-pro"
-    ]
+    "recommendations": ["iphone-se-2024", "iphone-14", "google-pixel-7a", "samsung-galaxy-a55"]
   },
   "google-pixel-6": {
     "name": "Google Pixel 6",
@@ -202,12 +137,7 @@
     "stock": 13,
     "imageUrl": "http://localhost:3030/images/google-pixel-6.jpg",
     "year": 2021,
-    "recommendations": [
-      "google-pixel-fold",
-      "google-pixel-8a",
-      "google-pixel-7-pro",
-      "google-pixel-8"
-    ]
+    "recommendations": ["google-pixel-7a", "google-pixel-8a", "samsung-galaxy-a16", "iphone-13-mini"]
   },
   "samsung-galaxy-z-fold5": {
     "name": "Samsung Galaxy Z Fold5",
@@ -217,11 +147,96 @@
     "stock": 4,
     "imageUrl": "http://localhost:3030/images/samsung-galaxy-z-fold5.jpg",
     "year": 2023,
-    "recommendations": [
-      "samsung-galaxy-z-flip6",
-      "samsung-galaxy-s23-fe",
-      "samsung-galaxy-a55",
-      "samsung-galaxy-s25"
-    ]
+    "recommendations": ["samsung-galaxy-z-flip6", "samsung-galaxy-s25-ultra", "google-pixel-fold", "iphone-15-pro-max"]
+  },
+  "iphone-16e": {
+    "name": "iPhone 16e",
+    "brand": "iphone",
+    "description": "iPhone 16e je nástupcom radu SE s moderným dizajnom bez fyzického tlačidla Home. Ponúka 6,1-palcový OLED displej, čip A18 Bionic a jednoduchý kamerový systém s 48 Mpx snímačom. Predstavuje cenovo najdostupnejší vstup do ekosystému Apple s podporou Apple Intelligence.",
+    "price": 699,
+    "stock": 20,
+    "imageUrl": "http://localhost:3030/images/iphone-16e.png",
+    "year": 2025,
+    "recommendations": ["iphone-se-2024", "iphone-15", "samsung-galaxy-s23-fe", "google-pixel-8"]
+  },
+  "iphone-15-pro-max": {
+    "name": "iPhone 15 Pro Max",
+    "brand": "iphone",
+    "description": "iPhone 15 Pro Max s titánovým rámom je najodolnejší iPhone v histórii. Disponuje čipom A17 Pro, 5× optickým zoomom a podporou USB-C s prenosovou rýchlosťou USB 3. Natívne nahráva priestorové video pre Apple Vision Pro.",
+    "price": 1449,
+    "stock": 4,
+    "imageUrl": "http://localhost:3030/images/iphone-15-pro-max.jpg",
+    "year": 2023,
+    "recommendations": ["iphone-16-pro", "iphone-14-pro-max", "samsung-galaxy-s25-ultra", "google-pixel-9-pro"]
+  },
+  "iphone-14": {
+    "name": "iPhone 14",
+    "brand": "iphone",
+    "description": "iPhone 14 prináša detekciu autonehôd, satelitnú tiesňovú komunikáciu a vylepšený duálny kamerový systém s väčším snímačom. Ponúka spoľahlivý výkon s čipom A15 Bionic a celodennou výdrž batérie.",
+    "price": 649,
+    "stock": 11,
+    "imageUrl": "http://localhost:3030/images/iphone-14.jpg",
+    "year": 2022,
+    "recommendations": ["iphone-15", "iphone-13-mini", "google-pixel-7-pro", "samsung-galaxy-s23-fe"]
+  },
+  "samsung-galaxy-s25-ultra": {
+    "name": "Samsung Galaxy S25 Ultra",
+    "brand": "samsung",
+    "description": "Galaxy S25 Ultra je vlajková loď radu Galaxy s titánovým rámom a integrovaným perom S Pen. Disponuje 200 Mpx hlavným snímačom, 5× optickým zoomom a 6,9-palcovým QHD+ Dynamic AMOLED displejom. Procesor Snapdragon 8 Elite for Galaxy zabezpečuje špičkový výkon pri hrách aj produktivite.",
+    "price": 1499,
+    "stock": 7,
+    "imageUrl": "http://localhost:3030/images/samsung-galaxy-s25-ultra.png",
+    "year": 2025,
+    "recommendations": ["samsung-galaxy-s25", "samsung-galaxy-z-fold5", "iphone-16-pro", "google-pixel-9-pro"]
+  },
+  "samsung-galaxy-a16": {
+    "name": "Samsung Galaxy A16",
+    "brand": "samsung",
+    "description": "Galaxy A16 je cenovo najdostupnejší smartfón od Samsungu so šiestimi rokmi garantovaných aktualizácií. Ponúka 6,7-palcový Super AMOLED displej s rozlíšením FHD+, trojitý kamerový systém a batériu s kapacitou 5 000 mAh. Ideálna voľba pre nenáročných používateľov.",
+    "price": 199,
+    "stock": 30,
+    "imageUrl": "http://localhost:3030/images/samsung-galaxy-a16.jpg",
+    "year": 2024,
+    "recommendations": ["samsung-galaxy-a55", "google-pixel-6", "google-pixel-7a", "iphone-13-mini"]
+  },
+  "samsung-galaxy-s24": {
+    "name": "Samsung Galaxy S24",
+    "brand": "samsung",
+    "description": "Galaxy S24 priniesol revolúciu v podobe Galaxy AI s funkciami ako Live Translate, Circle to Search a generatívne úpravy fotografií. Má 6,2-palcový Dynamic AMOLED displej so 120 Hz, procesor Exynos 2400 a trojitý kamerový systém s 50 Mpx hlavným snímačom.",
+    "price": 849,
+    "stock": 14,
+    "imageUrl": "http://localhost:3030/images/samsung-galaxy-s24.png",
+    "year": 2024,
+    "recommendations": ["samsung-galaxy-s25", "samsung-galaxy-s23-fe", "iphone-15", "google-pixel-9"]
+  },
+  "google-pixel-9-pro": {
+    "name": "Google Pixel 9 Pro",
+    "brand": "google",
+    "description": "Google Pixel 9 Pro prináša nový dizajn s plochými hranami a matným skleneným zadným krytom. Disponuje čipom Tensor G4, 16 GB RAM a trojitým kamerovým systémom s 50 Mpx hlavným, 48 Mpx ultraširokouhlým a 48 Mpx teleobjektívom s 5× optickým zoomom. Integrované AI funkcie Gemini posúvajú smartfónovú fotografiu na novú úroveň.",
+    "price": 1099,
+    "stock": 9,
+    "imageUrl": "http://localhost:3030/images/google-pixel-9-pro.jpeg",
+    "year": 2024,
+    "recommendations": ["google-pixel-9", "google-pixel-8", "iphone-16-pro", "samsung-galaxy-s25"]
+  },
+  "google-pixel-9": {
+    "name": "Google Pixel 9",
+    "brand": "google",
+    "description": "Pixel 9 ponúka prémiový dizajn s 6,3-palcovým Actua displejom s jasnosťou až 2 700 nitov. Čip Tensor G4 zabezpečuje plynulý chod AI funkcií vrátane Gemini Nano. Duálny kamerový systém s 50 Mpx hlavným a 48 Mpx ultraširokouhlým snímačom vytvára fotografie s pozoruhodným dynamickým rozsahom.",
+    "price": 899,
+    "stock": 12,
+    "imageUrl": "http://localhost:3030/images/google-pixel-9.jpg",
+    "year": 2024,
+    "recommendations": ["google-pixel-9-pro", "google-pixel-8", "iphone-15", "samsung-galaxy-s24"]
+  },
+  "google-pixel-7a": {
+    "name": "Google Pixel 7a",
+    "brand": "google",
+    "description": "Pixel 7a je cenovo dostupný model s čipom Tensor G2, ktorý sprístupňuje pokročilé AI funkcie širšiemu publiku. Ponúka 6,1-palcový OLED displej s 90 Hz obnovovacou frekvenciou, 64 Mpx hlavný fotoaparát a bezdrôtové nabíjanie. Vďaka pravidelnému sedemročnému cyklu aktualizácií je to investícia s dlhou životnosťou.",
+    "price": 349,
+    "stock": 16,
+    "imageUrl": "http://localhost:3030/images/google-pixel-7a.jpg",
+    "year": 2023,
+    "recommendations": ["google-pixel-8a", "google-pixel-6", "samsung-galaxy-a16", "iphone-13-mini"]
   }
 }

@@ -19,6 +19,7 @@ function saveCartToCookie(cart) {
 
 class CheckoutBuy extends HTMLElement {
     connectedCallback() {
+        if (window.setupElementTeamFrame) window.setupElementTeamFrame(this, 'Orchid');
         this._handleClick = () => this.onClick();
         this.innerHTML = `
       <button class="btn btn-success btn-xl">Pridať do košíka</button>
@@ -55,7 +56,7 @@ class CheckoutBuy extends HTMLElement {
 
         window.dispatchEvent(new CustomEvent("cart-changed", { detail: { cart } }));
 
-        alert("Produkt pridaný do košíka 🛒");
+        alert("Produkt pridaný do košíka");
     }
 }
 

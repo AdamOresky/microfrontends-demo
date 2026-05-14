@@ -1,5 +1,6 @@
 class RecommendedProducts extends HTMLElement {
     async connectedCallback() {
+        if (window.setupElementTeamFrame) window.setupElementTeamFrame(this, 'MediumSeaGreen');
         this.innerHTML = `<h5 class="mb-3 mt-5">Odporúčané produkty:</h5><div id="product-list" class="row"></div>`;
 
         try {
