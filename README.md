@@ -72,7 +72,7 @@ Tím Produkt je hostiteľská stránka, ktorá vkladá header a footer Tímu Dom
 Stránky dynamicky načítavajú HTML fragmenty od iných tímov pomocou `fetch` a vkladajú ich do DOM. Celý kód beží v jednom kontexte prehliadača. Servery musia mať povolené CORS hlavičky.
 
 ### 04 Web Components
-Najvyspelejší prístup. Každý tím definuje vlastné HTML elementy pomocou Custom Elements API (`<home-header>`, `<all-products>`, `<checkout-buy>` a ďalšie). Skripty sa načítavajú asynchrónne. Komunikácia medzi komponentami prebieha prostredníctvom `CustomEvent` a cookies.
+Najvyspelejší prístup. Každý tím definuje vlastné HTML elementy pomocou Custom Elements API (`<home-header>`, `<all-products>`, `<buy-button>` a ďalšie). Skripty sa načítavajú asynchrónne. Komunikácia medzi komponentami prebieha prostredníctvom `CustomEvent` a cookies.
 
 ---
 

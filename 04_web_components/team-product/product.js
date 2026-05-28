@@ -24,7 +24,7 @@ class Product extends HTMLElement {
             <div class="row">
                 <p class="col-3 p-0"><strong>Cena:</strong> ${product.price} €</p>
                 <div class="mt-2">
-                    <checkout-buy></checkout-buy>
+                    <buy-button></buy-button>
                 </div>
             </div>
         </div>    

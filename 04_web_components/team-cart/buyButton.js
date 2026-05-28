@@ -46,7 +46,7 @@ class CheckoutBuy extends HTMLElement {
         }
 
         if (!productId) {
-            console.warn("checkout-buy: missing product-id (ani v URL)");
+            console.warn("buy-button: missing product-id (ani v URL)");
             return;
         }
 
@@ -60,4 +60,4 @@ class CheckoutBuy extends HTMLElement {
     }
 }
 
-window.customElements.define("checkout-buy", CheckoutBuy);
+window.customElements.define("buy-button", CheckoutBuy);
