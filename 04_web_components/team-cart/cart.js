@@ -60,7 +60,7 @@ class Cart extends HTMLElement {
             window.dispatchEvent(
                 new CustomEvent("cart-changed", { detail: { cart: {} } })
             );
-            this.renderCart();
+            this.renderCart().then();
             alert("Objednávka dokončená.");
             return;
         }
@@ -90,7 +90,7 @@ class Cart extends HTMLElement {
         }
 
         saveCartToCookie(cart);
-        this.renderCart();
+        this.renderCart().then();
     }
 
     async renderCart() {

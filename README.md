@@ -51,11 +51,11 @@ Ukončenie všetkých serverov: `Ctrl+C` v termináli.
 
 ## Rozdelenie portov
 
-| Služba | Port |
-|---|---|
-| Tím Domov | `localhost:3001` |
-| Tím Produkt | `localhost:3002` |
-| Tím Košík | `localhost:3003` |
+| Služba            | Port             |
+|-------------------|------------------|
+| Tím Domov         | `localhost:3001` |
+| Tím Produkt       | `localhost:3002` |
+| Tím Košík         | `localhost:3003` |
 | Zdieľané úložisko | `localhost:3030` |
 
 ---
@@ -97,8 +97,8 @@ Stav košíka je zdieľaný medzi všetkými tímami prostredníctvom browser co
 
 V pätičke stránky sa nachádza tlačidlo, ktoré farebne zvýrazní hranice jednotlivých mikrofrontendov podľa tímu, ktorý ich spravuje:
 
-| Tím | Farba |
-|---|---|
-| Tím Domov | 🟦 `DodgerBlue` |
+| Tím         | Farba               |
+|-------------|---------------------|
+| Tím Domov   | 🟦 `DodgerBlue`     |
 | Tím Produkt | 🟩 `MediumSeaGreen` |
-| Tím Košík | 🟪 `Orchid` |
+| Tím Košík   | 🟪 `Orchid`         |
