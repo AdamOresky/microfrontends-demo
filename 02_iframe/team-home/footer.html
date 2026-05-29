@@ -1,32 +1,32 @@
 <html lang="sk">
 <head>
-    <meta charset="utf-8">
-    <link href="static/page.css" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-          crossorigin="anonymous">
-    <title></title>
+		<meta charset="utf-8">
+		<link href="static/page.css" rel="stylesheet"/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+					crossorigin="anonymous">
+		<title></title>
 </head>
 <body class="container">
-  <div class="footer d-flex flex-column align-items-center gap-2 pb-3 mb-0" style="margin-top:0;">
-    <label
-      style="cursor: pointer; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
-      <input type="checkbox" id="show-teams-toggle" style="cursor: pointer;"> Zobraziť tímy
-    </label>
-    <span>MicroShop 2026 | Bakalárska práca</span>
-  </div>
-  <script src="http://localhost:3030/teams.js"></script>
-  <script>
-      window.TeamLabels.init([{ name: "Tím Domov", color: "DodgerBlue" }]);
+	<div class="footer d-flex flex-column align-items-center gap-2 pb-3 mb-0" style="margin-top:0;">
+		<label
+			style="cursor: pointer; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
+			<input type="checkbox" id="show-teams-toggle" style="cursor: pointer;"> Zobraziť tímy
+		</label>
+		<span>MicroShop 2026 | Bakalárska práca</span>
+	</div>
+	<script src="http://localhost:3030/teams.js"></script>
+	<script>
+			window.TeamLabels.init([{ name: "Tím Domov", color: "DodgerBlue" }]);
 
-      window.addEventListener('teamStateChanged', (e) => {
-          const body = document.body;
-          if (e.detail.show) {
-              body.style.outline = `4px dashed DodgerBlue`;
-              body.style.outlineOffset = '-4px';
-          } else {
-              body.style.outline = '';
-          }
-      });
-  </script>
+			window.addEventListener('teamStateChanged', (e) => {
+					const body = document.body;
+					if (e.detail.show) {
+							body.style.outline = `4px dashed DodgerBlue`;
+							body.style.outlineOffset = '-4px';
+					} else {
+							body.style.outline = '';
+					}
+			});
+	</script>
 </body>
 </html>

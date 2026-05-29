@@ -1,58 +1,58 @@
 body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-  background: transparent;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+	background: transparent;
 }
 
 .header {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.25rem 1rem;
-  border: solid lightgray;
-  border-width: 3px 0;
-  font-size: 2rem;
-  color: gray;
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.25rem 1rem;
+	border: solid lightgray;
+	border-width: 3px 0;
+	font-size: 2rem;
+	color: gray;
 }
 
 .header-left {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .header-right a {
-  margin-left: 1rem;
-  text-decoration: none;
+	margin-left: 1rem;
+	text-decoration: none;
 }
 
 .logo-link {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
 .logo-link:hover {
-  color: inherit;
+	color: inherit;
 }
 
 h2 {
-  font-size: 1.5em;
-  text-align: center;
-  margin: 0;
+	font-size: 1.5em;
+	text-align: center;
+	margin: 0;
 }
 
 a {
-  color: cornflowerblue;
+	color: cornflowerblue;
 }
 
 .footer {
-  color: gray;
-  font-size: 1.2rem;
-  margin-top: auto;
-  margin-bottom: 2rem;
-  text-align: center;
-  padding: 0.5rem;
-  border-top: 3px solid lightgray;
-  border-bottom: 3px solid lightgray;
+	color: gray;
+	font-size: 1.2rem;
+	margin-top: auto;
+	margin-bottom: 2rem;
+	text-align: center;
+	padding: 0.5rem;
+	border-top: 3px solid lightgray;
+	border-bottom: 3px solid lightgray;
 }

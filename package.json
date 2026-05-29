@@ -1,23 +1,23 @@
 {
-  "name": "microforonetends",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "storage": "serve --cors --listen 3030 storage",
-    "01_pages_links": "concurrently --names \"home,product,cart,storage\" \"serve --listen 3001 01_pages_links/team-home\" \"serve --listen 3002 01_pages_links/team-product\" \"serve --listen 3003 01_pages_links/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3002/home && opener http://localhost:3002/home\"",
-    "02_iframe": "concurrently --names \"home,product,cart,storage\" \"serve --listen 3001 02_iframe/team-home\" \"serve --listen 3002 02_iframe/team-product\" \"serve --listen 3003 02_iframe/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3002/home && opener http://localhost:3002/home\"",
-    "03_ajax": "concurrently --names \"home,product,cart,storage\" \"serve --cors --listen 3001 03_ajax/team-home\" \"serve --cors --listen 3002 03_ajax/team-product\" \"serve --cors --listen 3003 03_ajax/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3002/home && opener http://localhost:3002/home\"",
-    "04_web_components": "concurrently --names \"home,product,cart,storage\" \"serve --cors --listen 3001 04_web_components/team-home\" \"serve --cors --listen 3002 04_web_components/team-product\" \"serve --cors --listen 3003 04_web_components/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3001/home && opener http://localhost:3001/home\""
-  },
-  "author": "naltatis",
-  "license": "ISC",
-  "dependencies": {
-    "@microfrontends/serve": "^11.3.0",
-    "concurrently": "^6.0.2",
-    "opener": "^1.5.2"
-  },
-  "devDependencies": {
-    "wait-on": "^9.0.1"
-  }
+	"name": "microforonetends",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"storage": "serve --cors --listen 3030 storage",
+		"01_pages_links": "concurrently --names \"home,product,cart,storage\" \"serve --listen 3001 01_pages_links/team-home\" \"serve --listen 3002 01_pages_links/team-product\" \"serve --listen 3003 01_pages_links/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3002/home && opener http://localhost:3002/home\"",
+		"02_iframe": "concurrently --names \"home,product,cart,storage\" \"serve --listen 3001 02_iframe/team-home\" \"serve --listen 3002 02_iframe/team-product\" \"serve --listen 3003 02_iframe/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3002/home && opener http://localhost:3002/home\"",
+		"03_ajax": "concurrently --names \"home,product,cart,storage\" \"serve --cors --listen 3001 03_ajax/team-home\" \"serve --cors --listen 3002 03_ajax/team-product\" \"serve --cors --listen 3003 03_ajax/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3002/home && opener http://localhost:3002/home\"",
+		"04_web_components": "concurrently --names \"home,product,cart,storage\" \"serve --cors --listen 3001 04_web_components/team-home\" \"serve --cors --listen 3002 04_web_components/team-product\" \"serve --cors --listen 3003 04_web_components/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3001/home && opener http://localhost:3001/home\""
+	},
+	"author": "naltatis",
+	"license": "ISC",
+	"dependencies": {
+		"@microfrontends/serve": "^11.3.0",
+		"concurrently": "^6.0.2",
+		"opener": "^1.5.2"
+	},
+	"devDependencies": {
+		"wait-on": "^9.0.1"
+	}
 }

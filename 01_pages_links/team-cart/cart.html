@@ -1,166 +1,166 @@
 <html lang="sk">
 
 <head>
-    <meta charset="utf-8" />
-    <title>MicroShop - Košík</title>
-    <link rel="shortcut icon" href="">
-    <link href="static/page.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
+	<meta charset="utf-8" />
+	<title>MicroShop - Košík</title>
+	<link rel="shortcut icon" href="">
+	<link href="static/page.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+		crossorigin="anonymous">
 </head>
 
 <body class="container">
-    <h1 class="header">
-        <span class="header-left">
-            <a class="logo-link" href="http://localhost:3002/home">MicroShop</a>
-        </span>
-        <span class="header-right">
-            <a href="http://localhost:3002/home">Produkty</a>
-            <a href="http://localhost:3003/cart">Košík</a>
-        </span>
-    </h1>
+	<h1 class="header">
+		<span class="header-left">
+			<a class="logo-link" href="http://localhost:3002/home">MicroShop</a>
+		</span>
+		<span class="header-right">
+			<a href="http://localhost:3002/home">Produkty</a>
+			<a href="http://localhost:3003/cart">Košík</a>
+		</span>
+	</h1>
 
-    <div class="mt-4">
-        <h5 class="mb-3 mt-3">Košík:</h5>
-        <div id="product-list" class="row text-center"></div>
-        <div class="row text-center">
-            <div id="cart-total" class="mt-2 fw-bold"></div>
-            <div id="finish-button" class="mt-2 mb-2"></div>
-        </div>
-    </div>
+	<div class="mt-4">
+		<h5 class="mb-3 mt-3">Košík:</h5>
+		<div id="product-list" class="row text-center"></div>
+		<div class="row text-center">
+			<div id="cart-total" class="mt-2 fw-bold"></div>
+			<div id="finish-button" class="mt-2 mb-2"></div>
+		</div>
+	</div>
 
-    <script>
-        function getCartFromCookie() {
-            const entry = document.cookie
-                .split("; ")
-                .find((row) => row.startsWith("cart="));
-            if (!entry) return {};
-            try {
-                const value = entry.split("=")[1];
-                return JSON.parse(decodeURIComponent(value));
-            } catch (e) {
-                console.error("Cannot parse cart cookie", e);
-                return {};
-            }
-        }
+	<script>
+		function getCartFromCookie() {
+			const entry = document.cookie
+				.split("; ")
+				.find((row) => row.startsWith("cart="));
+			if (!entry) return {};
+			try {
+				const value = entry.split("=")[1];
+				return JSON.parse(decodeURIComponent(value));
+			} catch (e) {
+				console.error("Cannot parse cart cookie", e);
+				return {};
+			}
+		}
 
-        function saveCartToCookie(cart) {
-            const value = encodeURIComponent(JSON.stringify(cart));
-            document.cookie = `cart=${value}; Path=/; SameSite=Lax`;
-        }
+		function saveCartToCookie(cart) {
+			const value = encodeURIComponent(JSON.stringify(cart));
+			document.cookie = `cart=${value}; Path=/; SameSite=Lax`;
+		}
 
-        (async function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const action = urlParams.get('action');
-            const productId = urlParams.get('id');
+		(async function () {
+			const urlParams = new URLSearchParams(window.location.search);
+			const action = urlParams.get('action');
+			const productId = urlParams.get('id');
 
-            let cart = getCartFromCookie();
+			let cart = getCartFromCookie();
 
-            const productList = document.getElementById("product-list");
-            const totalEl = document.getElementById("cart-total");
-            const finishButton = document.getElementById("finish-button");
+			const productList = document.getElementById("product-list");
+			const totalEl = document.getElementById("cart-total");
+			const finishButton = document.getElementById("finish-button");
 
-            try {
-                const response = await fetch('http://localhost:3030/products.json');
-                if (!response.ok) throw new Error(response.statusText);
-                const data = await response.json();
+			try {
+				const response = await fetch('http://localhost:3030/products.json');
+				if (!response.ok) throw new Error(response.statusText);
+				const data = await response.json();
 
-                if (action) {
-                    if (action === 'add' || action === 'increase') {
-                        if (productId && data[productId]) {
-                            const currentQty = cart[productId] || 0;
-                            const stock = data[productId].stock || 0;
-                            if (currentQty >= stock) {
-                                alert(`Nepodarilo sa pridať produkt. Na sklade je k dispozícii maximálne ${stock} ks.`);
-                            } else {
-                                cart[productId] = currentQty + 1;
-                            }
-                        }
-                    } else if (action === 'decrease') {
-                        if (productId && cart[productId]) {
-                            cart[productId] -= 1;
-                            if (cart[productId] <= 0) delete cart[productId];
-                        }
-                    } else if (action === 'remove') {
-                        if (productId) delete cart[productId];
-                    } else if (action === 'checkout') {
-                        cart = {};
-                        alert("Objednávka dokončená.");
-                    }
+				if (action) {
+					if (action === 'add' || action === 'increase') {
+						if (productId && data[productId]) {
+							const currentQty = cart[productId] || 0;
+							const stock = data[productId].stock || 0;
+							if (currentQty >= stock) {
+								alert(`Nepodarilo sa pridať produkt. Na sklade je k dispozícii maximálne ${stock} ks.`);
+							} else {
+								cart[productId] = currentQty + 1;
+							}
+						}
+					} else if (action === 'decrease') {
+						if (productId && cart[productId]) {
+							cart[productId] -= 1;
+							if (cart[productId] <= 0) delete cart[productId];
+						}
+					} else if (action === 'remove') {
+						if (productId) delete cart[productId];
+					} else if (action === 'checkout') {
+						cart = {};
+						alert("Objednávka dokončená.");
+					}
 
-                    saveCartToCookie(cart);
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }
+					saveCartToCookie(cart);
+					window.history.replaceState({}, document.title, window.location.pathname);
+				}
 
-                if (!Object.keys(cart).length) {
-                    productList.innerHTML = "<p>Košík je prázdny.</p>";
-                    totalEl.textContent = "";
-                    finishButton.textContent = "";
-                    return;
-                }
+				if (!Object.keys(cart).length) {
+					productList.innerHTML = "<p>Košík je prázdny.</p>";
+					totalEl.textContent = "";
+					finishButton.textContent = "";
+					return;
+				}
 
-                let total = 0;
-                let htmlDocs = "";
+				let total = 0;
+				let htmlDocs = "";
 
-                Object.entries(cart).forEach(([id, quantity]) => {
-                    const product = data[id];
-                    if (!product) return;
+				Object.entries(cart).forEach(([id, quantity]) => {
+					const product = data[id];
+					if (!product) return;
 
-                    const subtotal = product.price * quantity;
-                    total += subtotal;
+					const subtotal = product.price * quantity;
+					total += subtotal;
 
-                    htmlDocs += `
-                  <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                    <div class="card h-100 d-flex flex-column">
-                      <img
-                        src="${product.imageUrl}"
-                        class="card-img-top mt-3"
-                        alt="${product.name}"
-                        style="max-height: 300px; object-fit: cover;"
-                      >
-                      <div class="card-body d-flex flex-column" >
-                        <h6 class="mb-3">${product.name}</h6>
-                        <p class="p-0 mb-1">Cena: ${product.price.toLocaleString('sk-SK')} €</p>
-                        <p class="p-0 mb-1">Počet: ${quantity} ks</p>
-                        <p class="p-0 mb-3">Spolu: ${subtotal.toLocaleString('sk-SK')} €</p>
-                        <div class="mt-auto d-flex align-items-center justify-content-between">
-                          <div class="btn-group btn-group-sm" role="group">
-                            <a href="?action=decrease&id=${id}" class="btn btn-outline-secondary text-decoration-none">−</a>
-                            <a href="?action=increase&id=${id}" class="btn btn-outline-secondary text-decoration-none">+</a>
-                          </div>
-                          <a href="?action=remove&id=${id}" class="btn btn-outline-danger btn-sm text-decoration-none">Odstrániť</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                `;
-                });
+					htmlDocs += `
+				  <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+					<div class="card h-100 d-flex flex-column">
+					  <img
+						src="${product.imageUrl}"
+						class="card-img-top mt-3"
+						alt="${product.name}"
+						style="max-height: 300px; object-fit: cover;"
+					  >
+					  <div class="card-body d-flex flex-column" >
+						<h6 class="mb-3">${product.name}</h6>
+						<p class="p-0 mb-1">Cena: ${product.price.toLocaleString('sk-SK')} €</p>
+						<p class="p-0 mb-1">Počet: ${quantity} ks</p>
+						<p class="p-0 mb-3">Spolu: ${subtotal.toLocaleString('sk-SK')} €</p>
+						<div class="mt-auto d-flex align-items-center justify-content-between">
+						  <div class="btn-group btn-group-sm" role="group">
+							<a href="?action=decrease&id=${id}" class="btn btn-outline-secondary text-decoration-none">−</a>
+							<a href="?action=increase&id=${id}" class="btn btn-outline-secondary text-decoration-none">+</a>
+						  </div>
+						  <a href="?action=remove&id=${id}" class="btn btn-outline-danger btn-sm text-decoration-none">Odstrániť</a>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				`;
+				});
 
-                productList.innerHTML = htmlDocs;
-                totalEl.textContent = `Celková cena: ${total.toLocaleString('sk-SK')} €`;
+				productList.innerHTML = htmlDocs;
+				totalEl.textContent = `Celková cena: ${total.toLocaleString('sk-SK')} €`;
 
-                finishButton.innerHTML = `<a href="?action=checkout" class="btn btn-success text-decoration-none">Dokončiť objednávku</a>`;
-            } catch (error) {
-                console.error('Failed to load products.json:', error);
-                productList.innerHTML = "<p>Nepodarilo sa načítať košík.</p>";
-                totalEl.textContent = "";
-            }
-        })();
-    </script>
+				finishButton.innerHTML = `<a href="?action=checkout" class="btn btn-success text-decoration-none">Dokončiť objednávku</a>`;
+			} catch (error) {
+				console.error('Failed to load products.json:', error);
+				productList.innerHTML = "<p>Nepodarilo sa načítať košík.</p>";
+				totalEl.textContent = "";
+			}
+		})();
+	</script>
 
-    <div class="footer d-flex flex-column align-items-center gap-2 pb-3">
-        <label
-            style="cursor: pointer; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
-            <input type="checkbox" id="show-teams-toggle" style="cursor: pointer;"> Zobraziť tímy
-        </label>
-        <span>MicroShop 2026 | Bakalárska práca</span>
-    </div>
-    <script src="http://localhost:3030/teams.js"></script>
-    <script src="http://localhost:3030/team-frame.js"></script>
-    <script>
-        window.TeamLabels.init([{ name: "Tím Košík", color: "Orchid" }]);
-        window.initTeamFrame('Orchid');
-    </script>
+	<div class="footer d-flex flex-column align-items-center gap-2 pb-3">
+		<label
+			style="cursor: pointer; font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
+			<input type="checkbox" id="show-teams-toggle" style="cursor: pointer;"> Zobraziť tímy
+		</label>
+		<span>MicroShop 2026 | Bakalárska práca</span>
+	</div>
+	<script src="http://localhost:3030/teams.js"></script>
+	<script src="http://localhost:3030/team-frame.js"></script>
+	<script>
+		window.TeamLabels.init([{ name: "Tím Košík", color: "Orchid" }]);
+		window.initTeamFrame('Orchid');
+	</script>
 </body>
 
 </html>
