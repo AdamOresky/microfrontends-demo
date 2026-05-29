@@ -22,7 +22,7 @@ class CheckoutBuy extends HTMLElement {
         if (window.setupElementTeamFrame) window.setupElementTeamFrame(this, 'Orchid');
         this._handleClick = () => this.onClick();
         this.innerHTML = `
-      <button class="btn btn-success btn-xl">Pridať do košíka</button>
+      <button class="btn btn-primary">Pridať do košíka</button>
     `;
         const btn = this.querySelector("button");
         if (btn) {

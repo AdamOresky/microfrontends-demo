@@ -77,9 +77,10 @@
               </div>
               <div class="col-8 mt-4">
                 <h2>${product.name}</h2>
-                <p class="text-muted">${product.description || ''}</p>
+                <p class="text-muted mb-3">${product.description || ''}</p>
+                <p class="mb-0">Rok výroby: <span class="fw-bold">${product.year}</span></p>
                 <p>
-                  Skladom: <span class="${product.stock > 0 ? 'text-success' : 'text-danger'} fw-bold">${product.stock} ks</span>
+                  Skladom: <span class="text-success fw-bold">${product.stock} ks</span>
                 </p>
                 <h4 class="mb-4">Cena: ${product.price.toLocaleString('sk-SK')} €</h4>
                 

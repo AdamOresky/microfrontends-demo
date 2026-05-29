@@ -13,22 +13,18 @@ class Product extends HTMLElement {
                     this.innerHTML = `
 <div class="row mt-5">
     <div class="col-4">
-        <img style="max-width: 100%" src="${product.imageUrl}" alt="${product.name}">    
+        <img class="img-fluid border p-3" src="${product.imageUrl}" alt="${product.name}">
     </div>
     <div class="col-8">
-        <h2 class="row">${product.name}</h2>
-        <p class="row mt-3">${product.description}</p>
-        <div class="row mt-3">
-            <p class="p-0 mb-1"><strong>Rok výroby:</strong> ${product.year}</p>
-            <p class="p-0 mb-1"><strong>Na sklade:</strong> ${product.stock} ks</p>
-            <div class="row">
-                <p class="col-3 p-0"><strong>Cena:</strong> ${product.price.toLocaleString('sk-SK')} €</p>
-                <div class="mt-2">
-                    <buy-button></buy-button>
-                </div>
-            </div>
-        </div>    
-    </div>      
+        <h2>${product.name}</h2>
+        <p class="text-muted mb-3">${product.description}</p>
+        <p class="mb-0">Rok výroby: <span class="fw-bold">${product.year}</span></p>
+        <p>Skladom: <span class="text-success fw-bold">${product.stock} ks</span></p>
+        <h4 class="mb-4">Cena: ${product.price.toLocaleString('sk-SK')} €</h4>
+        <div class="d-flex gap-2">
+            <buy-button></buy-button>
+        </div>
+    </div>
 </div>
           `;
                 } else {
