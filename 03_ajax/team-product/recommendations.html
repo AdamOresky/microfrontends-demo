@@ -41,7 +41,7 @@
                 <img src="${recProduct.imageUrl}" class="card-img-top p-3" alt="${recProduct.name}" style="height:200px;object-fit:contain;">
                 <div class="card-body text-center">
                   <h6 class="card-title fw-bold">${recProduct.name}</h6>
-                  <p class="card-text mb-0 fw-bold">${recProduct.price} €</p>
+                  <p class="card-text mb-0 fw-bold">${recProduct.price.toLocaleString('sk-SK')} €</p>
                 </div>
               </div>
             </a>

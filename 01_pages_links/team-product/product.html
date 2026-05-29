@@ -47,7 +47,7 @@
                 <p>
                   Skladom: <span class="${product.stock > 0 ? 'text-success' : 'text-danger'} fw-bold">${product.stock} ks</span>
                 </p>
-                <h4 class="mb-4">Cena: ${product.price} €</h4>
+                <h4 class="mb-4">Cena: ${product.price.toLocaleString('sk-SK')} €</h4>
                 
                 <div class="d-flex gap-2">
                   <a href="http://localhost:3003/cart?action=add&id=${productId}" class="btn btn-primary">

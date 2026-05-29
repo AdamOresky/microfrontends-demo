@@ -181,7 +181,7 @@ class AllProducts extends HTMLElement {
             <img src="${productData.imageUrl}" class="card-img-top p-3" alt="${productData.name}" style="height:200px;object-fit:contain;">
             <div class="card-body text-center">
               <h6 class="card-title fw-bold">${productData.name}</h6>
-              <p class="card-text mb-0 fw-bold">${productData.price} €</p>
+              <p class="card-text mb-0 fw-bold">${productData.price.toLocaleString('sk-SK')} €</p>
             </div>
           </div>
         </a>

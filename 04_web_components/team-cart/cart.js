@@ -137,9 +137,9 @@ class Cart extends HTMLElement {
             >
             <div class="card-body d-flex flex-column">
               <h6 class="mb-3">${product.name}</h6>
-              <p class="p-0 mb-1">Cena: ${product.price} €</p>
+              <p class="p-0 mb-1">Cena: ${product.price.toLocaleString('sk-SK')} €</p>
               <p class="p-0 mb-1">Počet: ${quantity} ks</p>
-              <p class="p-0 mb-3">Spolu: ${subtotal.toLocaleString()} €</p>
+              <p class="p-0 mb-3">Spolu: ${subtotal.toLocaleString('sk-SK')} €</p>
               <div class="mt-auto d-flex align-items-center justify-content-between">
                 <div class="btn-group btn-group-sm" role="group">
                   <button
@@ -165,7 +165,7 @@ class Cart extends HTMLElement {
                 productList.appendChild(productEl);
             });
 
-            totalEl.textContent = `Celková cena: ${total} €`;
+            totalEl.textContent = `Celková cena: ${total.toLocaleString('sk-SK')} €`;
 
             finishButton.innerHTML = `
                 <button type="button" class="btn btn-success cart-checkout">

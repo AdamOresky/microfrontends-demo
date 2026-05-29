@@ -22,7 +22,7 @@ class Product extends HTMLElement {
             <p class="p-0 mb-1"><strong>Rok výroby:</strong> ${product.year}</p>
             <p class="p-0 mb-1"><strong>Na sklade:</strong> ${product.stock} ks</p>
             <div class="row">
-                <p class="col-3 p-0"><strong>Cena:</strong> ${product.price} €</p>
+                <p class="col-3 p-0"><strong>Cena:</strong> ${product.price.toLocaleString('sk-SK')} €</p>
                 <div class="mt-2">
                     <buy-button></buy-button>
                 </div>

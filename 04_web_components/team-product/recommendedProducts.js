@@ -30,7 +30,7 @@ class RecommendedProducts extends HTMLElement {
                                 <img src="${product.imageUrl}" class="card-img-top mt-3" alt="${product.name}" style="max-height: 300px; object-fit: cover;">
                                 <div class="card-body">
                                     <h6 class="card-title">${product.name}</h6>
-                                    <p class="card-text">${product.price} €</p>
+                                    <p class="card-text">${product.price.toLocaleString('sk-SK')} €</p>
                                 </div>
                             </div>
                         </a>
