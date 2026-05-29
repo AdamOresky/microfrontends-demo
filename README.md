@@ -102,3 +102,11 @@ V pätičke stránky sa nachádza tlačidlo, ktoré farebne zvýrazní hranice j
 | Tím Domov   | 🟦 `DodgerBlue`     |
 | Tím Produkt | 🟩 `MediumSeaGreen` |
 | Tím Košík   | 🟪 `Orchid`         |
+
+## Zdroje a atribúcia
+
+Implementácia vychádza z referenčného projektu a knihy od Michaela Geersa:
+
+- **neuland/micro-frontends** — https://github.com/neuland/micro-frontends
+- **micro-frontends.org** — https://micro-frontends.org
+- Geers, M. *Micro Frontends in Action*. Manning Publications, 2020.

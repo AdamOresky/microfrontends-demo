@@ -1,7 +1,7 @@
 {
-	"name": "microforonetends",
-	"version": "1.0.0",
-	"description": "",
+	"name": "microforntends-demo",
+	"version": "2.0.0",
+	"description": "Simple microfrontend e-shop demo using four integration techniques: HTML links, iframes, Ajax, and Web Components.",
 	"main": "index.js",
 	"scripts": {
 		"storage": "serve --cors --listen 3030 storage",
@@ -10,8 +10,8 @@
 		"03_ajax": "concurrently --names \"home,product,cart,storage\" \"serve --cors --listen 3001 03_ajax/team-home\" \"serve --cors --listen 3002 03_ajax/team-product\" \"serve --cors --listen 3003 03_ajax/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3002/home && opener http://localhost:3002/home\"",
 		"04_web_components": "concurrently --names \"home,product,cart,storage\" \"serve --cors --listen 3001 04_web_components/team-home\" \"serve --cors --listen 3002 04_web_components/team-product\" \"serve --cors --listen 3003 04_web_components/team-cart\" \"npm:storage\" \"npx wait-on http-get://localhost:3001/home && opener http://localhost:3001/home\""
 	},
-	"author": "naltatis",
-	"license": "ISC",
+	"author": "AdamOresky",
+	"license": "MIT",
 	"dependencies": {
 		"@microfrontends/serve": "^11.3.0",
 		"concurrently": "^6.0.2",
