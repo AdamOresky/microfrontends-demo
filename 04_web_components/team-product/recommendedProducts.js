@@ -25,12 +25,12 @@ class RecommendedProducts extends HTMLElement {
                     const productEl = document.createElement("div");
                     productEl.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
                     productEl.innerHTML = `
-                        <a href="http://localhost:3002/product?productId=${recId}" style="text-decoration: none; color: inherit;">
+                        <a href="http://localhost:3002/product?productId=${recId}" style="text-decoration:none;color:inherit;">
                             <div class="card h-100">
-                                <img src="${product.imageUrl}" class="card-img-top mt-3" alt="${product.name}" style="max-height: 300px; object-fit: cover;">
-                                <div class="card-body">
-                                    <h6 class="card-title">${product.name}</h6>
-                                    <p class="card-text">${product.price.toLocaleString('sk-SK')} €</p>
+                                <img src="${product.imageUrl}" class="card-img-top p-3" alt="${product.name}" style="height:200px;object-fit:contain;">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title fw-bold">${product.name}</h6>
+                                    <p class="card-text mb-0 fw-bold">${product.price.toLocaleString('sk-SK')} €</p>
                                 </div>
                             </div>
                         </a>
