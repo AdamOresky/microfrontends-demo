@@ -8,7 +8,7 @@
     crossorigin="anonymous">
   <script>
     function loadAjaxComponent(url, containerId) {
-      fetch(url)
+      return fetch(url)
         .then(res => res.text())
         .then(html => {
           const container = document.getElementById(containerId);
@@ -73,8 +73,10 @@
 
   <script>
     (async function () {
-      loadAjaxComponent('http://localhost:3001/header', 'header-container');
-      loadAjaxComponent('http://localhost:3001/footer', 'footer-container');
+      window.__componentsReady = Promise.all([
+        loadAjaxComponent('http://localhost:3001/header', 'header-container'),
+        loadAjaxComponent('http://localhost:3001/footer', 'footer-container')
+      ]);
 
       const urlParams = new URLSearchParams(window.location.search);
       const sortVal = urlParams.get('sort');
@@ -224,11 +226,13 @@
   <script src="http://localhost:3030/teams.js"></script>
   <script src="http://localhost:3030/team-frame.js"></script>
   <script>
-    window.TeamLabels.init([
-      { name: "Tím Domov", color: "DodgerBlue" },
-      { name: "Tím Produkt", color: "MediumSeaGreen" }
-    ]);
-    window.initTeamFrame('MediumSeaGreen');
+    window.__componentsReady.then(() => {
+      window.TeamLabels.init([
+        { name: "Tím Domov", color: "DodgerBlue" },
+        { name: "Tím Produkt", color: "MediumSeaGreen" }
+      ]);
+      window.initTeamFrame('MediumSeaGreen');
+    });
   </script>
 </body>
 

@@ -20,15 +20,18 @@
   </h1>
   <script src="http://localhost:3030/teams.js"></script>
   <script>
-    window.addEventListener('teamStateChanged', (e) => {
-      const body = document.body;
-      if (e.detail.show) {
-        body.style.outline = `3px dashed blue`;
-        body.style.outlineOffset = '-3px';
-      } else {
-        body.style.outline = '';
+    (function () {
+      const el = document.querySelector('.header');
+      if (!el) return;
+      function apply(show) {
+        el.style.outline = show ? '3px dashed DodgerBlue' : '';
+        el.style.outlineOffset = show ? '4px' : '';
       }
-    });
+      window.addEventListener('teamStateChanged', (e) => apply(e.detail.show));
+      // Apply initial state in case teamStateChanged already fired before this ran
+      const match = document.cookie.split('; ').find(row => row.startsWith('showTeams='));
+      if (match && match.split('=')[1] === 'true') apply(true);
+    })();
   </script>
 </body>
 
